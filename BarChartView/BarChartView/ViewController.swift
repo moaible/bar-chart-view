@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     var barChartView = BarChartView(frame: CGRect.zero)
     
-    let xArray = Array(1 ... 49)
+    let xArray = Array(0 ... 48)
     
     // MARK: - View life cycle
     
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         barChartView.data = data
         barChartView.xAxis.yOffset = 0
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xArray.map {
-            "\($0 / 2):\($0 % 2 != 0 ? "00" : "30")"
+            "\($0 / 2):\($0 % 2 == 0 ? "00" : "30")"
         })
         barChartView.xAxis.granularity = 12
         barChartView.gridBackgroundColor = .white
